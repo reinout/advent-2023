@@ -1,4 +1,1 @@
 pytest
-# python-lsp-server
-python-lsp-ruff
-# pylsp-mypy
