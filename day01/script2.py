@@ -1,6 +1,5 @@
 import pathlib
 
-
 NUMBERS = "0123456789"
 MAPPING = {
     "one": 1,
@@ -15,7 +14,7 @@ MAPPING = {
 }
 
 
-def find_first(line):
+def find_first(line: str) -> int:
     for number in NUMBERS:
         if line.startswith(number):
             return int(number)
@@ -25,7 +24,7 @@ def find_first(line):
     return find_first(line[1:])
 
 
-def find_last(line):
+def find_last(line: str) -> int:
     for number in NUMBERS:
         if line.endswith(number):
             return int(number)
@@ -35,11 +34,11 @@ def find_last(line):
     return find_last(line[:-1])
 
 
-def line_solution(line):
-    return find_first(line) *10 + find_last(line)
+def line_solution(line: str) -> int:
+    return find_first(line) * 10 + find_last(line)
 
 
-def solution(content):
+def solution(content: str) -> int:
     lines = [line for line in content.split("\n") if line]
     return sum([line_solution(line) for line in lines])
 
