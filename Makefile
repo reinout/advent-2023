@@ -6,3 +6,9 @@ venv:
 
 test:
 	venv/bin/pytest
+
+check:
+	ruff check . --fix
+
+beautiful:
+	ruff format .
