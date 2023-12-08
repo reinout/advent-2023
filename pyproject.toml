@@ -1,2 +1,6 @@
+[project]
+name = "advent-2023"
+version = "0.1"
+
 [tool.pyright]
 venv = "venv"

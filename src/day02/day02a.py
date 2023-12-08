@@ -56,7 +56,7 @@ def id_sum_possible_games(text: str, bag: Subset) -> int:
 
 
 if __name__ == "__main__":
-    source = pathlib.Path("day02/input.txt")
+    source = pathlib.Path("src/day02/input.txt")
     contents = source.read_text()
     bag = Subset(red=12, green=13, blue=14)
     print(id_sum_possible_games(contents, bag))

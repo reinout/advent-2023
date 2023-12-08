@@ -14,6 +14,6 @@ def solution(content: str) -> int:
 
 
 if __name__ == "__main__":
-    source = pathlib.Path("day01/input.txt")
+    source = pathlib.Path("src/day01/input.txt")
     contents = source.read_text()
     print(solution(contents))

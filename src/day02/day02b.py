@@ -23,6 +23,6 @@ def total_power(text: str) -> int:
 
 
 if __name__ == "__main__":
-    source = pathlib.Path("day02/input.txt")
+    source = pathlib.Path("src/day02/input.txt")
     contents = source.read_text()
     print(total_power(contents))

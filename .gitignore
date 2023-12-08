@@ -2,3 +2,4 @@ bin/
 lib/
 __pycache__
 pyvenv.cfg
+/src/advent_2023.egg-info/
