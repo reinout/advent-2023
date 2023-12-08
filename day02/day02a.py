@@ -1,4 +1,5 @@
 from dataclasses import dataclass, field
+import pathlib
 
 
 @dataclass
@@ -41,7 +42,6 @@ def biggest_subset(game: Game) -> Subset:
 def possible(game: Game, bag: Subset) -> bool:
     """Return if it is possible to grab subset from bag"""
     biggest = biggest_subset(game)
-    print(biggest)
     for color in ["blue", "red", "green"]:
         if getattr(biggest, color) > getattr(bag, color):
             return False
@@ -53,3 +53,10 @@ def id_sum_possible_games(text: str, bag: Subset) -> int:
     games = [game_from_line(line) for line in lines if line.strip()]
     possible_game_ids = [game.id for game in games if possible(game, bag)]
     return sum(possible_game_ids)
+
+
+if __name__ == "__main__":
+    source = pathlib.Path("day02/input.txt")
+    contents = source.read_text()
+    bag = Subset(red=12, green=13, blue=14)
+    print(id_sum_possible_games(contents, bag))
