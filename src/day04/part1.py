@@ -30,6 +30,11 @@ class Card:
             return 0
         return 2 ** (len(self.matches) - 1)
 
+    @property
+    def extra_ids(self) -> list[int]:
+        """Part 2: return follow-up IDs the number of matches this gains us"""
+        return [(self.id + 1 + i) for i in range(len(self.matches))]
+
 
 def text_to_cards(text: str) -> list[Card]:
     lines = [line for line in text.split("\n") if line.strip()]
@@ -42,8 +47,24 @@ def total_points(cards: list[Card]) -> int:
     return sum(all_points)
 
 
+def number_gained(original_cards: list[Card]) -> int:
+    card_info = {card.id: card for card in original_cards}
+    number_of_cards = {card.id: 1 for card in original_cards}
+    known_ids = [card.id for card in original_cards]
+    for card in original_cards:
+        our_number = number_of_cards[card.id]
+        for id in card.extra_ids:
+            if id not in known_ids:
+                continue
+            number_of_cards[id] += our_number
+    return sum(number_of_cards.values())
+
+
 if __name__ == "__main__":
     source = pathlib.Path("src/day04/input.txt")
     contents = source.read_text()
     cards = text_to_cards(contents)
+    print("Part 1")
     print(total_points(cards))
+    print("Part 2")
+    print(number_gained(cards))

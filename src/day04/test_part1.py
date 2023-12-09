@@ -1,4 +1,4 @@
-from day04.part1 import Card, text_to_cards, total_points
+from day04.part1 import Card, number_gained, text_to_cards, total_points
 
 TESTDATA = """\
 Card 1: 41 48 83 86 17 | 83 86  6 31 17  9 48 53
@@ -40,3 +40,17 @@ def test_card_points1():
 def test_integration():
     cards = text_to_cards(TESTDATA)
     assert total_points(cards) == 13
+
+
+# Part 2 below
+
+
+def test_card_extra_ids():
+    card = Card(SAMPLE_LINE)
+    # 2 matching numbers
+    assert card.extra_ids == [4, 5]
+
+
+def test_handle_stack():
+    cards = text_to_cards(TESTDATA)
+    assert  number_gained(cards) == 30
