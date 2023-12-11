@@ -53,4 +53,4 @@ def test_card_extra_ids():
 
 def test_handle_stack():
     cards = text_to_cards(TESTDATA)
-    assert  number_gained(cards) == 30
+    assert number_gained(cards) == 30
