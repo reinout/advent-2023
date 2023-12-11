@@ -48,7 +48,6 @@ def total_points(cards: list[Card]) -> int:
 
 
 def number_gained(original_cards: list[Card]) -> int:
-    card_info = {card.id: card for card in original_cards}
     number_of_cards = {card.id: 1 for card in original_cards}
     known_ids = [card.id for card in original_cards]
     for card in original_cards:
